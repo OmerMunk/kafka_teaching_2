@@ -14,3 +14,7 @@ consumer = KafkaConsumer(
 # third parameter (auto_offset_reset) = where to start reading the messages from
 # fourth parameter (enable_auto_commit) = whether to commit the offset automatically
 # fifth parameter (group_id) = the group id of the consumer
+
+
+for message in consumer:
+    print(f"received message: {message.value.decode('utf-8')}")

@@ -7,12 +7,39 @@
 - zookeeper - service that coordinates kafka brokers
 """
 
-
-# pull the kafka image:
-# docker pull apache/kafka:3.9.0
-
-# start the kafka container:
-# docker run -p 9092:9092 apache/kafka:3.9.0
-
 # pip install kafka-python
+
+# how to create a topic:
+"""
+1. access the container
+
+docker exec -it kafka_teaching_2-kafka-1 bash
+
+2. create the topic
+
+kafka-topics --create --topic gur_topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+
+excpeted output: Created topic gur_topic.
+"""
+
+# how do i know what topics do i have?
+"""
+kafka-topics --list --bootstrap-server localhost:9092
+"""
+
+# how to produce message
+"""
+kafka-console-producer --topic gur_topic --bootstrap-server localhost:9092
+"""
+
+
+# how to consume message
+"""
+kafka-console-consumer --topic gur_topic --from-beginning --bootstrap-server localhost:9092
+"""
+
+
+
+
+
 
