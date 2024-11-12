@@ -42,6 +42,9 @@ kafka-console-consumer --topic gur_topic --from-beginning --bootstrap-server loc
 
 
 
+my_code = "print(5+5)"
+eval(my_code)
+
 
 
 
