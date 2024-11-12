@@ -9,6 +9,8 @@
 
 # pip install kafka-python
 
+# docker-compose up -d
+
 # how to create a topic:
 """
 1. access the container
