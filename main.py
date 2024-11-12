@@ -19,7 +19,11 @@ docker exec -it kafka_teaching_2-kafka-1 bash
 
 2. create the topic
 
+simple:
 kafka-topics --create --topic gur_topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+
+
+kafka-topics --create --topic gur_topic2 --bootstrap-server localhost:9092 --replication-factor 1 --partitions 2
 
 excpeted output: Created topic gur_topic.
 """

@@ -10,7 +10,7 @@ from kafka import KafkaConsumer
 
 
 consumer1 = KafkaConsumer(
-    'gur_topic',
+    'gur_topic2',
     bootstrap_servers='localhost:9092',
     auto_offset_reset='earliest',
     enable_auto_commit=False,

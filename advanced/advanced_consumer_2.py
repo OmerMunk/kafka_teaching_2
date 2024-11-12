@@ -10,15 +10,17 @@ from kafka import KafkaConsumer
 
 
 consumer2 = KafkaConsumer(
-    'gur_topic',
+    'gur_topic2',
     bootstrap_servers='localhost:9092',
     auto_offset_reset='earliest',
     enable_auto_commit=False,
     group_id='group1'
 )
+# enable_auto_commit=False - we will manually commit the offset
+# if we don't commit the offset, the consumer will read the same message again and again
 
 
 for message in consumer2:
     print(f"CONSUMER 2 received message: {message.value.decode('utf-8')}")
     time.sleep(1)
-    consumer2.commit()
+    # consumer2.commit()
