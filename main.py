@@ -1,16 +1,18 @@
-# This is a sample Python script.
+# Kafka architecture
+"""
+- Brokers - server that store and forward messages
+- Topics - Categories or feed names that the messages are published to
+- Partition - splits of a topic for parallelism
+- Producers and Consumers - applications that write data to and read from kafka
+- zookeeper - service that coordinates kafka brokers
+"""
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
+# pull the kafka image:
+# docker pull apache/kafka:3.9.0
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+# start the kafka container:
+# docker run -p 9092:9092 apache/kafka:3.9.0
 
+# pip install kafka-python
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

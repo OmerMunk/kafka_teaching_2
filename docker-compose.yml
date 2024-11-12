@@ -1,24 +1,23 @@
 version: '3'
 services:
-  db:
-    image: postgres:13
+  zookeeper:
+    image: zookeeper
     environment:
-      POSTGRES_USER: omermunk
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: users_subjects_db
-    volumes:
-      - db_data:/var/lib/postgresql/data
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
     ports:
-      - "5432:5432"
+      - "2181:2181"
 
-  api:
-    build: .
+  kafka:
+    image: apache/kafka:3.9.0
     depends_on:
-      - db
+      - zookeeper
     ports:
-      - "5001:5001"
+      - "9092:9092"
     environment:
-      - DATABASE_URL=postgresql://omermunk:1234@db:5432/users_subjects_db
-
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 volumes:
   db_data:
